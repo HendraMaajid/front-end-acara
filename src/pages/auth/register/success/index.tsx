@@ -1,10 +1,11 @@
 import AuthLayout from "@/components/layouts/AuthLayout";
-import Register from "@/components/views/Register";
+import Register from "@/components/views/Auth/Register";
+import RegisterSuccess from "@/components/views/Auth/RegisterSuccess";
 
 const RegisterSuccessPage = () => {
     return (
         <AuthLayout titleAuth="Register Success">
-            <h1>Sukses</h1>
+            <RegisterSuccess />
         </AuthLayout>
     )
 }

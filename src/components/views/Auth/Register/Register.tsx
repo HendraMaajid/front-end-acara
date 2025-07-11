@@ -7,7 +7,7 @@ import { Controller } from "react-hook-form"
 import { cn } from "@/utils/cn"
 
 const Register = () => {
-    const {visiblePassword, handleVisiblePassword, control, handleSubmit, handleRegister, errors, isPendingRegister} = useRegister()
+    const { visiblePassword, handleVisiblePassword, control, handleSubmit, handleRegister, errors, isPendingRegister } = useRegister()
     return (
         <div className="flex flex-col w-full items-center justify-center gap-10 lg:gap-20 lg:flex-row ">
             <div className="flex w-full lg:w-1/3 flex-col items-center justify-center gap-10">
@@ -32,7 +32,7 @@ const Register = () => {
                         Have an account?&nbsp;
                         <Link href="/auth/login" className="font-semibold text-danger-400">Login Here</Link>
                     </p>
-                    { errors.root && (
+                    {errors.root && (
                         <div className="mt-3">
                             <p className="text-danger-500 text-sm">{errors?.root?.message}</p>
                         </div>
@@ -40,7 +40,7 @@ const Register = () => {
                     <form className={cn("flex w-80 flex-col mt-3", Object.keys(errors).length > 0 ? "gap-2" : "gap-3")} onSubmit={handleSubmit(handleRegister)}>
                         <Controller name="fullName" control={control} render={({ field }) => (
                             <Input {...field} type="text" label="Fullname" variant="bordered" autoComplete="off" isInvalid={errors.fullName !== undefined} errorMessage={errors.fullName?.message}></Input>
-                        )}/>
+                        )} />
                         <Controller name="username" control={control} render={({ field }) => (
                             <Input {...field} type="text" label="Username" variant="bordered" autoComplete="off" isInvalid={errors.username !== undefined} errorMessage={errors.username?.message}></Input>
                         )} />
@@ -53,7 +53,7 @@ const Register = () => {
                                     <button className="focus:outline-none" type="button" onClick={() => handleVisiblePassword("password")}>
                                         {visiblePassword.password ? <FaEye className="text-xl text-default-400 pointer-events-none" /> : <FaEyeSlash className="text-xl text-default-400 pointer-events-none" />}
                                     </button>
-                            } isInvalid={errors.password !== undefined} errorMessage={errors.password?.message}></Input>
+                                } isInvalid={errors.password !== undefined} errorMessage={errors.password?.message}></Input>
                         )} />
                         <Controller name="confirmPassword" control={control} render={({ field }) => (
                             <Input {...field} type={visiblePassword.confirmPassword ? 'text' : 'password'} label="Password Confirmation" variant="bordered" autoComplete="off"
@@ -61,16 +61,16 @@ const Register = () => {
                                     <button className="focus:outline-none" type="button" onClick={() => handleVisiblePassword("confirmPassword")}>
                                         {visiblePassword.confirmPassword ? <FaEye className="text-xl text-default-400 pointer-events-none" /> : <FaEyeSlash className="text-xl text-default-400 pointer-events-none" />}
                                     </button>
-                            } isInvalid={errors.confirmPassword !== undefined} errorMessage={errors.fullName?.message}></Input>
+                                } isInvalid={errors.confirmPassword !== undefined} errorMessage={errors.confirmPassword?.message}></Input>
                         )} />
 
                         <Button color="danger" size="lg" type="submit">
-                            {isPendingRegister ? <Spinner color="white" size="sm"/> : "Register"}
+                            {isPendingRegister ? <Spinner color="white" size="sm" /> : "Register"}
                         </Button>
                     </form>
                 </CardBody>
             </Card>
-            
+
 
         </div>
     )
